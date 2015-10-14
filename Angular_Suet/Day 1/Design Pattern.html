@@ -1,0 +1,200 @@
+<html>  
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>Getting Started With Design Pattern Example</title>  
+        <!--<script src="../vendor/angular.js" type="text/javascript"></script>-->
+        <script src="../vendor/jquery-2.0.3.js" type="text/javascript"></script>      
+        
+		<script>
+		// Create object Using Javascript, 
+            function Car(Model,Year){//debugger;
+				this.Model = Model;
+				this.Color = "Red";
+				this.Year = Year;
+				this.GetInfo = function(){
+					return this.Model + ' , ' +this.Year +' with '+this.Color;
+				}
+			}
+			//instantiate the object using the Car constructor
+			var objCar = new Car('Ford Fogo latest','2012');
+			objCar.Color = 'Silver';
+			
+			console.log(objCar.GetInfo());	
+			
+        </script>
+		
+		<script>
+		// Constructor Implementation with Prototype
+			function Car(Model,Year){//debugger;
+				this.Model = Model;
+				this.Color = "Red";
+				this.Year = Year;				
+			}
+			//Here, a single instance of GetInfo() will now be shared between all of the Car objects.
+			Car.prototype.GetInfo = function(){
+					return this.Model + ' , ' +this.Year +' with '+this.Color;
+				}
+			
+			//instantiate the object using the Car constructor
+			var objCar = new Car('Ford Fogo 1','2010');
+			var objCar1 = new Car('Ford Fogo 2','2011');
+						
+			console.log(objCar.GetInfo(),objCar1.GetInfo());	
+		</script>
+		
+		<script>
+		//Singleton Pattern Implement  
+			// First way
+			var mySingleton = {
+				property1: "something",
+				property2: "something else",
+				method1: function () {
+				console.log('hello world');
+				}
+			};
+			console.log(mySingleton.property1);
+			//Change Property value
+			mySingleton.property1 = "Brajesh";
+			console.log(mySingleton.property1);
+			
+			//Second Way
+			var Singleton = (function () {
+				var Name = '';
+				function init() {
+					this.Name= 'xyz';
+					init.prototype.Name = {
+						set: function (val) {
+							Name = val;
+						},
+						get: function () {
+							return (Name);
+						}
+					};
+				}
+				var instance;
+				// an emulation of static variables and methods
+				return {
+					// Method for getting an instance. It returns a singleton instance of a singleton object
+					getInstance: function (options) {
+						if (instance === undefined) {
+							instance = new init();
+						}
+						return instance;
+					}
+				};
+			})();
+			
+			console.log(Singleton.getInstance().Name);
+			
+		</script>
+		
+		<script>
+		//Facade pattern Implementation
+			var module = (function() {
+				var _private = {
+				i:5,
+				get : function() {
+					console.log('current value:' + this.i);
+				},
+				set : function( val ) {
+					this.i = val;
+				},
+				run : function() {
+					console.log( 'running' );
+				},
+				jump: function(){
+					console.log( 'jumping' );
+				}
+				};
+				return {
+					facade : function( args ) {
+					_private.set(args.val);
+					_private.get();
+					if ( args.run ) {
+					_private.run();
+					}
+					}
+				}
+			}());
+			//will actually trigger a set of private behavior within the module
+			module.facade({run: true, val:10});
+		</script>
+		
+		<script>
+		// 1 Decorator Design Pattern Implementation
+			function vehicle( vehicleType ){
+				// properties and defaults
+				this.vehicleType = vehicleType || 'car',
+				this.model = 'default',
+				this.license = '00000-000'
+			}
+			// Test instance for a basic vehicle
+			var testInstance = new vehicle('car');
+			console.log(testInstance);
+			
+			// create a new instance of vehicle, to be decorated*/
+			var truck = new vehicle('truck');
+			// New functionality we're decorating vehicle with
+			truck.setModel = function( modelName ){
+				this.model = modelName;
+			}
+			truck.setColor = function( color ){
+				this.color = color;
+			}
+			// Test the value setters and value assignment works correctly
+			truck.setModel('Tata');
+			truck.setColor('Black');
+			console.log(truck);
+			
+			// Demonstrate 'vehicle' is still unaltered
+			var secondInstance = new vehicle('car');
+			console.log(secondInstance);
+			
+		// 2 Decorator Design Pattern
+			// What we're going to decorate
+			function Car() {
+				this.cost = function () { return 450000; };
+				this.model = function () { return 'Tata'; };
+			}
+			// Decorator 1
+			function SeatCover( Car ) {
+				var v = Car.cost();
+				Car.cost = function() {
+					return v + 1175;
+				}
+			}
+			// Decorator 2
+			function MusicSystem( Car ){
+				var v = Car.cost();
+				Car.cost = function(){
+					return v + 5000;
+				};
+			}
+			// Decorator 3
+			function Insurance( Car ){
+				var v = Car.cost();
+				Car.cost = function(){
+					return v + 2500;
+				};
+			}
+			var objCar = new Car();
+			
+			console.log(objCar.cost()); 
+			SeatCover(objCar);
+			
+			console.log(objCar.cost()); 
+			MusicSystem(objCar);
+			
+			console.log(objCar.cost()); 
+			Insurance(objCar);
+			
+			console.log(objCar.cost()); 
+			console.log(objCar.model()); 
+			
+		</script>
+		
+    </head>
+    <body>
+        
+    </body>
+</html>

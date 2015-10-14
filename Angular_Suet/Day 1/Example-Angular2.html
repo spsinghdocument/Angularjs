@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <title>AngularJS Example</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"> </script>
+
+    <script>
+    function MyFirsController($scope) {
+    $scope.Users = [
+        {firstName: 'Brajesh',lastName:'Kumar', city:'Kanpur' },
+        {firstName: 'Sujeet',lastName:'Kumar', city:'UP' },
+        {firstName: 'Saurabh',lastName:'Singh', city:'Delhi' },
+    ];
+}
+    </script>   
+</head>
+
+<body ng-controller="MyFirsController">
+
+   <div>
+    <h2>List of User</h2>
+    <br/>
+    <ul>
+        <li ng-repeat="user in Users">
+            {{user.firstName}} {{user.lastName}} live in {{user.city}}
+        </li>
+    </ul>
+	
+</div>
+
+
+</body>
+</html> 

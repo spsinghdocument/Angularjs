@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../script/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp">
+<div  ng-controller="myCtrl">
+
+    Enter Your Age (Format : yyyy, MM, dd): <input type="text" ng-model="birthdate">
+
+    <br/>
+
+    Date Entered: {{birthdate}}<br/>
+    My Name: {{fn + " "+ln}} and Age: {{myAge(birthdate)}}
+
+</div>
+</div>
+<script>
+    var app=angular.module('myApp', []);
+    app.controller('myCtrl', function($scope){
+        $scope.fn="Sujeet";
+        $scope.ln = "Srivastava";
+        $scope.abs=function(num){
+            return Math.abs(num);
+        }
+        $scope.birthdate="1980, 05, 31";
+        $scope.myAge = function(birthdate){
+            var temp=birthdate.split(',')
+            var dob = new Date(temp[0],temp[1], temp[2]),
+                    today = new Date(),
+                    ms = today.valueOf() - dob.valueOf(),
+
+                    minutes = ms / 1000 / 60,
+                    hours = minutes / 60,
+
+                    days = hours / 24,
+                    years = days / 365,
+
+                    age = Math.floor(years)
+            return age;
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

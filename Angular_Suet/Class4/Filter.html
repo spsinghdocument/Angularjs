@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html data-ng-app="IG">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Filter in AngularJS</title>
+
+</head>
+<body>
+<div ng-controller="FilterController">
+    <input type="text" mg-model="test">
+<ul>
+    <li ng-repeat="cust in customers | filter:test | orderBy:'name' | limitTo : 5 ">
+
+        {{cust.name}} - {{cust.street}}
+    </li>
+
+</ul>
+    <p>Filter uppercase  ::- {{ "I am Done" | uppercase }}</p>
+    <p>Filter lowercase ::- {{ "Are you Done with your Work" | lowercase }}</p>
+    <p>Filter currency  ::- {{'8794'|currency}}</p>
+    <p>Filter format Number  ::- {{'871234'|number}}</p>
+
+</div>
+<div ng-controller="DemoController">
+    {{name}}<br/>
+    {{testStr}}<br/>
+    {{testCurr}}<br/>
+    {{testNum}}
+</div>
+</body>
+<script src="Script/angular.min.js"></script>
+<script src="Script/externalFilter.js"></script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../script/angular.min.js"></script>
+    <script src="../script/external.js"></script>
+</head>
+<body ng-app="IG">
+<div ng-controller="myController">
+    <h1>rootScopeController</h1>
+    <p>rootScope: {{site}}</p>
+    <!--changes in site will be done on controller level(myController level) rootScope not global rootScope object-->
+    <p>rootScope(ng-model): <input type="text" ng-model="site" /></p>
+
+    <p>welcome from scope: {{welcome}}</p>
+    <p>welcome from scope(ng-model): <input type="text" ng-model="welcome" /></p>
+    <p>scope: {{name}}</p>
+</div>
+
+<div ng-controller="testController">
+    <h1>ScopeController</h1>
+    <p>rootScope: {{site}}</p>
+    <!--changes in site will be done on controller level(testController level) rootScope not global rootScope object-->
+    <p>rootScope(ng-model): <input type="text" ng-model="site" /></p>
+
+    <p>welcome from scope: {{welcome}}</p>
+    <p>name from rootScope: {{name}}</p>
+</div>
+
+<div>
+    <h1>Outside from both Controller</h1>
+    <p>name from rootScope: {{name}}</p>
+    <p>site from rootScope: {{site}}</p>
+</div>
+
+</body>
+</html>

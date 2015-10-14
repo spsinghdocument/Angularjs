@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../script/angular.min.js"></script>
+    <script src="../script/employeeController.js"></script>
+    <!--<script src="../script/empControllerObj.js"></script>-->
+</head>
+<body ng-app="myApp">
+<div ng-controller="employeeCtrl">
+    <p>name: <input type="text" ng-model="name"></p>
+    <p>City: <input type="text" ng-model="city"></p>
+    <p>Country: <input type="text" ng-model="country"></p>
+
+    <p>Employee Information: {{empInfo()}}</p>
+</div>
+<!--<p>Data from empControllerObj.js</p>
+    <div ng-controller="employeeCtrl">
+    <ul>
+        <li ng-repeat="emp in Emp_Names">{{emp.name +', ' +emp.city}}</li>
+    </ul>
+    </div>-->
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>  
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>Getting Started With ngGrid Example</title>  
+        <!--<script src="../vendor/angular.js" type="text/javascript"></script>-->
+        <script src="../vendor/jquery-2.0.3.js" type="text/javascript"></script>      
+        <script>
+            $(function () {
+                var Name = $('#txtName');
+                var divTxt = $('#GettxtName');
+                Name.keyup(function () {
+                    divTxt.text('Welcome ' + Name.val());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input id="txtName" type="text" />
+        <div id="GettxtName"></div>
+    </body>
+</html>

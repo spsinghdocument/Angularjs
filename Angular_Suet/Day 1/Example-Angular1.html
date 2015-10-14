@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app>  
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>Getting Started With AngularJS Example</title>  
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"> </script>     
+    <script>
+		function myContrl($scope){
+			$scope.Name = "Sujeet Kumar Yadav";
+		}
+	</script>
+	</head>
+    <body ng-controller="myContrl">
+	<form name="frmProfile" id="frmProfile" style="height: 370px; width: 100%">
+        
+        <div id="GettxtName">{{Name}}</div>
+    </form>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html data-ng-app="IG">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS rootScope and scope :: InterviewGully.com</title>
+    <script src="../script/angular.min.js"></script>
+    <script src="../script/Example1Controller.js"></script>
+</head>
+<body>
+<div ng-controller="FirstController">
+<h4>Simplest Adding Machine - First</h4>
+ <button ng-click="add(1)" class="button">Increase</button>
+<button ng-click="subtract(1)" class="button alert">Increase</button>
+    <br/>
+    {{counter}}
+    </div>
+
+<div ng-controller="FController">
+    <h4>Simplest Adding Machine - Second</h4>
+    <button ng-click="add(1)" class="button">Increase</button>
+    <button ng-click="subtract(1)" class="button alert">Increase</button>
+    <br/>
+    {{counter}}
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+$.ajax({
+        type: 'GET',
+        dataType: "jsonp",
+        contentType: "application/json; charset=utf-8",
+        data: '{}',
+        url: 'http://medicartapi-rxmedicine.rhcloud.com/medcartapi/getPendingOrders',
+        crossDomain: true,
+        statusCode: {
+            200 : function(data){
+                //var json = $.parseJSON(data);
+                console.log(json,data);
+            }
+        },
+        accept:"application/json",
+        success: function (data) {
+           console.log(data);
+        },
+        // error:
+        error: function (request, status, error) {
+            //console.log(request);
+            //if error message is null hte n show the defsult message
+            console.log(request);
+        }
+    });

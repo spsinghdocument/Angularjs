@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="IG">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Class 4 Custom Filter</title>
+</head>
+<body>
+<!--<div>
+    <div ng-controller="FstCtrl">
+        <input type="text" ng-model="data.message">
+        <h>{{data.message}}</h>
+    </div>
+
+    <div ng-controller="ScndCtrl">
+        <input type="text" ng-model="data.message">
+        &lt;!&ndash;<h>{{reverseMessage(data.message)}}</h>&ndash;&gt;
+        <h1>{{data.message | reverse}}</h1>
+    </div>
+</div>-->
+
+
+<div ng-controller="CustController">
+<!--<input type="text" ng-model="searchText">-->
+<!--<input type="text" ng-model="search.name">-->
+<!--<input type="text" ng-model="search.street">-->
+<input type="text" ng-model="search.$">
+<table>
+    <!--<tr ng-repeat="actor in avengers.cast | filter:searchText">-->
+    <tr ng-repeat="actor in avengers.cast | filter:search">
+        <td>{{actor.name}}</td>
+        <td>{{actor.street}}</td>
+    </tr>
+</table>
+
+
+</div>
+<script type="text/javascript" src="Script/angular.min.js"></script>
+<script type="text/javascript" src="Script/CustFilter.js"></script>
+</body>
+</html>
